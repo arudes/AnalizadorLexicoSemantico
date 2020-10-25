@@ -1,0 +1,155 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ASIGNAR
+    CADENA
+    COMADOBLE
+    CORDER
+    CORIZQ
+    COUT
+    DOT
+    IN
+    INCLUDE
+    INT
+    LLADER
+    LLAIZQ
+    MAYORIGUAL
+    MAYORQUE
+    MENORIGUAL
+    MENORQUE
+    NAMESPACE
+    NOT
+    NUMERAL
+    NUMERO
+    OR
+    OUT
+    POTENCIA
+    PUNTO
+    RETURN
+    VOID
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> block
+Rule 2     block -> constDecl varDecl procDecl statement
+Rule 3     constDecl -> CONST constAssigmentList PUNTOCOMA
+Rule 4     constDecl -> empty
+Rule 5     constAssigmentList -> ID ASSIGN NUMBER
+Rule 6     constAssigmentList -> constAssigmentList COMA ID ASSIGN NUMBER
+Rule 7     varDecl -> VAR identList COMA ID
+Rule 8     varDecl -> empty
+Rule 9     identList -> ID
+Rule 10    identList -> identList COMMA ID
+Rule 11    procDecl -> procDecl PROCEDURE ID PUNTOCOMA block PUNTOCOMA
+Rule 12    procDecl -> empty
+Rule 13    statement -> ID UPDATE expression
+Rule 14    statement -> CALL ID
+Rule 15    statement -> BEGIN statementList END
+Rule 16    statement -> IF condition THEN statement
+Rule 17    statement -> WHILE condition DO statement
+Rule 18    statement -> empty
+Rule 19    statementList -> statement
+Rule 20    statementList -> statementList PUNTOCOMA statement
+Rule 21    condition -> DISTINTO expression
+Rule 22    condition -> expression relation expression
+Rule 23    relation -> ASSIGN
+Rule 24    relation -> DISTINTO
+Rule 25    relation -> LT
+Rule 26    relation -> GT
+Rule 27    relation -> LTE
+Rule 28    relation -> GTE
+Rule 29    expression -> term
+Rule 30    expression -> addingOperator term
+Rule 31    expression -> expresion addingOperator term
+Rule 32    addingOperator -> PLUS
+Rule 33    addingOperator -> MINUS
+Rule 34    term -> factor
+Rule 35    term -> term multiplyingOperator factor
+Rule 36    multiplyingOperator -> MULT
+Rule 37    multiplyingOperator -> DIV
+Rule 38    factor -> ID
+Rule 39    factor -> NUMBER
+Rule 40    factor -> PARIZQ expression PARDER
+Rule 41    empty -> empty
+
+Terminals, with rules where they appear
+
+ASIGNAR              : 
+BEGIN                : 15
+CADENA               : 
+CALL                 : 14
+COMA                 : 6 7
+COMADOBLE            : 
+CONST                : 3
+CORDER               : 
+CORIZQ               : 
+COUT                 : 
+DISTINTO             : 21 24
+DIV                  : 37
+DO                   : 17
+DOT                  : 
+END                  : 15
+GT                   : 26
+GTE                  : 28
+ID                   : 5 6 7 9 10 11 13 14 38
+IF                   : 16
+IN                   : 
+INCLUDE              : 
+INT                  : 
+LLADER               : 
+LLAIZQ               : 
+LT                   : 25
+LTE                  : 27
+MAYORIGUAL           : 
+MAYORQUE             : 
+MENORIGUAL           : 
+MENORQUE             : 
+MINUS                : 33
+MULT                 : 36
+NAMESPACE            : 
+NOT                  : 
+NUMERAL              : 
+NUMERO               : 
+OR                   : 
+OUT                  : 
+PARDER               : 40
+PARIZQ               : 40
+PLUS                 : 32
+POTENCIA             : 
+PROCEDURE            : 11
+PUNTO                : 
+PUNTOCOMA            : 3 11 11 20
+RETURN               : 
+THEN                 : 16
+UPDATE               : 13
+VAR                  : 7
+VOID                 : 
+WHILE                : 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+ASSIGN               : 5 6 23
+COMMA                : 10
+NUMBER               : 5 6 39
+addingOperator       : 30 31
+block                : 1 11
+condition            : 16 17
+constAssigmentList   : 3 6
+constDecl            : 2
+empty                : 4 8 12 18 41
+expresion            : 31
+expression           : 13 21 22 22 40
+factor               : 34 35
+identList            : 7 10
+multiplyingOperator  : 35
+procDecl             : 2 11
+program              : 0
+relation             : 22
+statement            : 2 16 17 19 20
+statementList        : 15 20
+term                 : 29 30 31 35
+varDecl              : 2
+

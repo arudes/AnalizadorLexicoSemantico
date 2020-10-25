@@ -1,0 +1,10 @@
+CONST
+m=7,
+n=85;
+
+#fglsd .,,edf
+VAR
+ x,y,z,w;
+
+ PROCEDURE POTEN:
+ VAR q, c;
